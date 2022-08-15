@@ -1,0 +1,23 @@
+import React from 'react';
+import {Box} from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { {{pascalCase name}}Props } from './{{pascalCase name}}.interface';
+
+const Custom{{pascalCase name}} = styled(Box)(({ theme }) => ({
+  // your styles here
+}))
+
+const {{pascalCase name}}:React.FC<{{pascalCase name}}Props> = ({children}) => {
+  return (
+    <Box 
+      component="div"
+      // sx - use this to add styles directly to the component
+    >
+    <Custom{{pascalCase name}}>
+      {children}
+    </Custom{{pascalCase name}}>
+    </Box>
+  );
+};
+
+export default {{pascalCase name}};
