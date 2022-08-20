@@ -1,33 +1,23 @@
-import { useEffect, useMemo, useState } from "react";
-import configureTheme from "../src/styles/theme";
+import { useEffect, useMemo } from "react";
 import type { AppContext, AppProps } from "next/app";
-import { Box, CssBaseline, ThemeProvider } from "@mui/material";
-import { Header } from "../src/layout/header";
-import { Footer } from "../src/layout/footer";
-import CustomGlobalStyles from "../src/styles/globalStyles";
 import CacheProvider from "../src/styles/CachProvider";
 import { ELocales, EDirection, EThemeMode } from "../src/interfaces";
+import ConfigContextWrapper from "../src/context/config.context";
 
-type TAppExtendedProps = {
+export type TAppExtendedProps = {
   appConfig: TAppConfigProps;
 };
 export type TAppConfigProps = {
-  initLocale: ELocales;
-  initDirection: EDirection;
-  initTheme: EThemeMode;
+  defaultLocale: ELocales;
+  defaultDirection: EDirection;
+  defaultTheme: EThemeMode;
 };
 const App = ({
   Component,
   pageProps,
   appConfig,
 }: AppProps & TAppExtendedProps) => {
-  const { initDirection, initLocale, initTheme } = useMemo(
-    () => appConfig,
-    [appConfig]
-  );
-  // Applicaiton theme mode controller
-  const [themeMode, setThemeMode] = useState<EThemeMode>(initTheme);
-  const [direction, setDirection] = useState<EDirection>(initDirection);
+  const { ...rest } = useMemo(() => appConfig, [appConfig]);
 
   useEffect(() => {
     // Remove the server-side injected CSS.
@@ -37,28 +27,11 @@ const App = ({
     }
   }, []);
 
-  const theme = useMemo(
-    () => configureTheme({ mode: themeMode, direction }),
-    [themeMode, direction]
-  );
-  /**
-   * @description - Change the application theme mode.
-   */
-  const onChangeThemeMode = (themeMode: EThemeMode) => {
-    setThemeMode(themeMode);
-  };
-
   return (
-    <CacheProvider locale={initLocale}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <CustomGlobalStyles />
-        <Header onChangeThemeMode={onChangeThemeMode} themeMode={themeMode} />
-        <Box component="main" height="100%">
-          <Component {...pageProps} />
-        </Box>
-        <Footer />
-      </ThemeProvider>
+    <CacheProvider locale={rest.defaultLocale}>
+      <ConfigContextWrapper {...rest}>
+        <Component {...pageProps} />
+      </ConfigContextWrapper>
     </CacheProvider>
   );
 };
@@ -74,9 +47,9 @@ App.getInitialProps = async ({ Component, ctx }: AppContext) => {
       // Some custom props for layout
     },
     appConfig: {
-      initLocale: locale,
-      initDirection: locale === "ar" ? "rtl" : "ltr",
-      initTheme: "light",
+      defaultLocale: locale,
+      defaultDirection: locale === "ar" ? "rtl" : "ltr",
+      defaultTheme: "light",
     },
   };
 };

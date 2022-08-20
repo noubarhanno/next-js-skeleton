@@ -1,0 +1,21 @@
+import type { NextPage } from "next";
+import Head from "next/head";
+import {Box} from '@mui/material';
+import PageContainer from "../src/layout/pageContainer/pageContainer.component";
+
+const {{pascalCase name}}: NextPage = () => {
+  return (
+    <PageContainer>
+      <Head>
+        <title>{{pascalCase name}}</title>
+        <meta name="description" content="Description about page" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Box component="div" height="100%">
+          {{pascalCase name}}
+      </Box>
+    </PageContainer>
+  );
+};
+
+export default {{pascalCase name}};

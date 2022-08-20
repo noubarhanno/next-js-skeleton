@@ -1,0 +1,70 @@
+import React, { createContext, useContext, useReducer } from "react";
+
+/**
+ * {{name}} reducer actions
+ */
+export enum E{{pascalCase name}}ContextAction {
+  // add actions here
+}
+
+/**
+ * type of the {{name}} context
+ */
+type T{{pascalCase name}}Context = {
+  // add context data types here
+};
+
+/**
+ * {{name}} context consumer
+ */
+type T{{pascalCase name}}ContextConsumer = {
+  state: T{{pascalCase name}}Context;
+  dispatch: React.Dispatch<{
+    type: any;
+    payload: any;
+  }>;
+};
+
+const {{pascalCase name}}Context = createContext({} as T{{pascalCase name}}ContextConsumer);
+
+const {{pascalCase name}}ContextWrapper: React.FC<{
+  children: React.ReactNode;
+}> = ({ children }) => {
+  /**
+   *
+   * @param state - The current state of the ConfigContext.
+   * @param action - The action to dispatch to the ConfigContext.
+   * @returns - The new state of the {{pascalCase name}}Context.
+   */
+  const reducer = (
+    state: T{{pascalCase name}}Context,
+    action: { type: keyof E{{pascalCase name}}ContextAction; payload: any }
+  ) => {
+    switch (action.type) {
+      default:
+        return state;
+    }
+  };
+
+  /**
+   * The reducer for the {{pascalCase name}}Context.
+   */
+  const [state, dispatch] = useReducer(reducer, {});
+
+  const value = {
+    state,
+    dispatch
+  }
+
+  return (
+    <{{pascalCase name}}Context.Provider value={value}>
+      {children}
+    </{{pascalCase name}}Context.Provider>
+  );
+};
+
+export default {{pascalCase name}}ContextWrapper;
+
+export function use{{pascalCase name}}Context(): T{{pascalCase name}}ContextConsumer {
+  return useContext({{pascalCase name}}Context);
+}
