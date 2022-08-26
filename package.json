@@ -9,7 +9,8 @@
     "lint": "next lint",
     "generate:react-component": "plop --plopfile ./generators/react-component.js",
     "generate:next-page": "plop --plopfile ./generators/next-page.js",
-    "generate:context": "plop --plopfile ./generators/context.js"
+    "generate:context": "plop --plopfile ./generators/context.js",
+    "generate:icon": "plop --plopfile ./generators/icon.js"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
@@ -25,6 +26,8 @@
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-scroll-motion": "^0.3.0",
+    "react-type-animation": "^2.1.0",
     "stylis": "^4.1.1",
     "stylis-plugin-rtl": "^2.1.1"
   },

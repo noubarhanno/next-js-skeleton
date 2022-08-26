@@ -1,10 +1,12 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import PageContainer from "./pageContainer.component";
+import PlatformPageLayout from "./PlatformPageLayout.component";
 
 describe("pageContainer component test suite", () => {
   it("should match the snapshot", () => {
-    const { container } = render(<h1 />);
+    const { container } = render(
+      <PlatformPageLayout>Home Page</PlatformPageLayout>
+    );
     expect(container).toMatchSnapshot();
   });
 });

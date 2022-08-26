@@ -1,4 +1,4 @@
-import { createTheme, Theme } from "@mui/material/styles";
+import { createTheme, getContrastRatio, Theme } from "@mui/material/styles";
 import { EDirection, EThemeMode } from "../interfaces";
 
 export type TConfigureThemeParams = {
@@ -9,22 +9,22 @@ const configureTheme: (options?: TConfigureThemeParams) => Theme = (
   options
 ) => {
   const { mode = "light", direction = "ltr" } = options || {};
-  let colorStore = {
-    primary: {
-      light: "#4FA4FD",
-      main: "#017DFF",
-      dark: "#0161C7",
-    },
-  };
-
   return createTheme({
     direction,
     typography: {
       fontFamily: "Roboto, sans-serif",
     },
+    components: {
+      MuiButton: {
+        defaultProps: {
+          disableRipple: true,
+          disableElevation: true,
+        },
+      },
+    },
     palette: {
+      contrastThreshold: 3,
       mode,
-      primary: colorStore.primary,
     },
   });
 };
