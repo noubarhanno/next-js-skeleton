@@ -1,1 +1,2 @@
-export { default as Header } from "./header.component";
+export { default as LandingHeader } from "./header.landing";
+export { default as AuthHeader } from "./header.auth";

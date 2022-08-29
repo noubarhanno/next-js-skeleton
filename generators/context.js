@@ -12,7 +12,7 @@ module.exports = function (plop) {
       {
         type: "add",
         path: "../src/context/{{name}}.context.tsx",
-        templateFile: "../plop-templates/ContextWrapper/contextWrapper.ts.hbs",
+        templateFile: "../plop-templates/contextWrapper.ts.hbs",
       },
     ],
   });

@@ -1,8 +1,9 @@
 import { useEffect, useMemo } from "react";
 import type { AppContext, AppProps } from "next/app";
-import CacheProvider from "../src/styles/CachProvider";
+import CacheProvider from "../src/styles/cacheProvider";
 import { ELocales, EDirection, EThemeMode } from "../src/interfaces";
 import ConfigContextWrapper from "../src/context/config.context";
+import ThemeAppWrapper from "styles/themeAppWrapper";
 
 export type TAppExtendedProps = {
   appConfig: TAppConfigProps;
@@ -30,7 +31,9 @@ const App = ({
   return (
     <CacheProvider locale={rest.defaultLocale}>
       <ConfigContextWrapper {...rest}>
-        <Component {...pageProps} />
+        <ThemeAppWrapper>
+          <Component {...pageProps} />
+        </ThemeAppWrapper>
       </ConfigContextWrapper>
     </CacheProvider>
   );

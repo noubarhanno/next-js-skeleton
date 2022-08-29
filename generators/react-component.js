@@ -8,6 +8,11 @@ module.exports = function (plop) {
         message: "What is the name of the component?",
       },
       {
+        type: "input",
+        name: "group",
+        message: "What group you want to create this component in?",
+      },
+      {
         type: "list",
         name: "type",
         message: "What type of component do you want to create?",
@@ -28,24 +33,24 @@ module.exports = function (plop) {
     actions: [
       {
         type: "add",
-        path: "../src/components/{{type}}/{{pascalCase name}}/{{pascalCase name}}.tsx",
+        path: "../src/components/{{type}}/{{group}}/{{name}}/{{name}}.tsx",
         templateFile: "../plop-templates/ReactComponent/reactComponent.ts.hbs",
       },
       {
         type: "add",
-        path: "../src/components/{{type}}/{{pascalCase name}}/{{pascalCase name}}.interface.ts",
+        path: "../src/components/{{type}}/{{group}}/{{name}}/{{name}}.interface.ts",
         templateFile:
           "../plop-templates/ReactComponent/reactComponent.interface.ts.hbs",
       },
       {
         type: "add",
-        path: "../src/components/{{type}}/{{pascalCase name}}/{{pascalCase name}}.test.tsx",
+        path: "../src/components/{{type}}/{{group}}/{{name}}/{{name}}.test.tsx",
         templateFile:
           "../plop-templates/ReactComponent/reactComponent.test.ts.hbs",
       },
       {
         type: "add",
-        path: "../src/components//{{type}}/{{pascalCase name}}/index.ts",
+        path: "../src/components/{{type}}/{{group}}/{{name}}/index.ts",
         templateFile: "../plop-templates/ReactComponent/index.ts.hbs",
       },
     ],

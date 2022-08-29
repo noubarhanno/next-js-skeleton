@@ -1,8 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import {{pascalCase name}} from './{{pascalCase name}}';
+import {{pascalCase name}} from './{{name}}';
 
-test('renders', () => {
-  render(<{{pascalCase name}} />);
+describe('{{pascalCase name}} test suite', () => {
+    it('should match snopshot', () => {
+        const { container } = render(<{{pascalCase name}} />);
+        expect(container).toMatchSnapshot();
+    });
 });
-
