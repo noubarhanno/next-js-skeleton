@@ -24,7 +24,11 @@ const PageContainer: React.FC<TPageContainerProps> = ({ children }) => {
   return (
     <>
       <Header onChangeThemeMode={onChangeThemeMode} themeMode={themeMode} />
-      <Box height="100%">{children}</Box>
+      <Box component="div" height="100%" p={2}>
+        <Box maxWidth={1300} component="div" margin="auto">
+          {children}
+        </Box>
+      </Box>
       <Footer />
     </>
   );

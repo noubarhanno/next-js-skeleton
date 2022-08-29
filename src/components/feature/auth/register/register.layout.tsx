@@ -1,8 +1,8 @@
-import { Box, Button, Divider, Paper, Typography } from "@mui/material";
-import CompanyLogo from "icons/companyLogo";
+import { Box, Button, Paper, Typography } from "@mui/material";
+import Link from "next/link";
 import React from "react";
 
-const LoginLayout: React.FC<{ children?: React.ReactNode }> = ({
+const RegisterLayout: React.FC<{ children?: React.ReactNode }> = ({
   children,
 }) => {
   return (
@@ -20,7 +20,7 @@ const LoginLayout: React.FC<{ children?: React.ReactNode }> = ({
           mt={4}
           mb={2}
         >
-          Hi, Welcome Back
+          Request a demo
         </Typography>
         <Typography
           textAlign="center"
@@ -28,29 +28,32 @@ const LoginLayout: React.FC<{ children?: React.ReactNode }> = ({
           color="text.secondary"
           mb={2}
         >
-          Sign in on the internal platform
+          Register to have a demo of our platform
         </Typography>
       </Box>
       {children}
       {/* divider */}
-      <Box display="flex" alignItems="center" my={3}>
-        <Box width="100%" border="1px solid #e9ecef" height="1px" />
+      <Box display="flex" width="100%" alignItems="center" my={3}>
+        <Box width="80%" border="1px solid #e9ecef" height="1px" />
         <Box
-          px={3}
+          px={2}
           py="5px"
           borderRadius={15}
           border="1px solid #e9ecef"
           mx={2}
+          width="100%"
         >
-          Or
+          Already registered?
         </Box>
-        <Box width="100%" border="1px solid #e9ecef" height="1px" />
+        <Box width="80%" border="1px solid #e9ecef" height="1px" />
       </Box>
-      <Button color="primary" variant="outlined" fullWidth>
-        Signup
-      </Button>
+      <Link href="/auth/login">
+        <Button color="primary" variant="outlined" fullWidth>
+          Login
+        </Button>
+      </Link>
     </Paper>
   );
 };
 
-export default LoginLayout;
+export default RegisterLayout;

@@ -1,13 +1,13 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Box, Typography } from "@mui/material";
-import { Login } from "components/feature/auth/login";
 import { AuthHeader } from "layout/header";
 import { EConfigContextAction, useConfigContext } from "context/config.context";
 import { EThemeMode } from "interfaces";
 import { Footer } from "layout/footer";
+import { Register } from "components/feature/auth/register";
 
-const LoginPage: NextPage = () => {
+const SignupPage: NextPage = () => {
   const { dispatch, state } = useConfigContext();
 
   const onChangeThemeMode = (theme: EThemeMode) => {
@@ -20,7 +20,7 @@ const LoginPage: NextPage = () => {
   return (
     <Box height="100%">
       <Head>
-        <title>Secfinity - Login</title>
+        <title>Secfinity - Register</title>
         <meta name="description" content="Login Page Content" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -51,14 +51,14 @@ const LoginPage: NextPage = () => {
             themeMode={state.themeMode}
           />
           <Typography variant="h3" color="white" mt={5}>
-            Welcome back
+            Register your interest with us
           </Typography>
           <Typography variant="body1" color="white" m={1}>
             Unlocking the full potential of your securities Portfolio
           </Typography>
         </Box>
-        <Box display="flex" sx={{ transform: "translateY(-50%)" }}>
-          <Login />
+        <Box display="flex" sx={{ transform: "translateY(-35%)" }}>
+          <Register />
         </Box>
         <Footer />
       </Box>
@@ -66,4 +66,4 @@ const LoginPage: NextPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignupPage;

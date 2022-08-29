@@ -10,8 +10,8 @@ const CustomGlobalStyles: React.FC = () => {
           margin: 0,
         },
         "& html, body, #__next": {
-          height: "100%",
           margin: 0,
+          scrollBehavior: "smooth",
         },
         body: {
           margin: 0,

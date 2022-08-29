@@ -15,7 +15,10 @@ const CompanyLogo: React.FC<TypographyProps> = (props) => {
     // >
     //   // add your svg content here
     // </SvgIcon>
-    <Typography {...props}>{`[Logo goes here]`}</Typography>
+    <Typography
+      sx={{ cursor: "pointer" }}
+      {...props}
+    >{`[Logo goes here]`}</Typography>
   );
 };
 

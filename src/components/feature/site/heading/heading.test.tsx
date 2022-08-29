@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import {{pascalCase name}} from './{{name}}';
+import Heading from './heading';
 
-describe('{{pascalCase name}} test suite', () => {
+describe('Heading test suite', () => {
     it('should match snopshot', () => {
-        const { container } = render(<{{pascalCase name}} />);
+        const { container } = render(<Heading />);
         expect(container).toMatchSnapshot();
     });
 });

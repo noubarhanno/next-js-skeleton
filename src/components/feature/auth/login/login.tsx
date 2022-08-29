@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Button, TextField } from "@mui/material";
-import { LoginProps } from "./Login.interface";
-import { PasswordField } from "components/ui/PasswordField";
-import LoginLayout from "./Login.layout";
+import { LoginProps } from "./login.interface";
+import { PasswordField } from "components/ui/password-field";
+import LoginLayout from "./login.layout";
 
 const Login: React.FC<LoginProps> = () => {
   return (
